@@ -1,2 +1,11 @@
 %h1= @user.name
 %p= @user.email
+
+%ul.list-group
+  
+  - @user.events.each do |e|
+    %li.list-group-item
+      %h2= e.readable_date
+      %h3= e.location
+      %p= e.description
+
