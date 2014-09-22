@@ -1,3 +1,6 @@
 %h2= @event.readable_date
 %h3= @event.location
 %p= @event.description
+%p
+  Created by 
+  =link_to @event.creator.name, user_path(@event.creator)

@@ -20,7 +20,9 @@
 
         .collapse.navbar-collapse
           %ul.nav.navbar-right.navbar-nav
+            %li= link_to "Events", events_path
             - if logged_in?
+              %li= link_to "New Event", new_event_path
               %li= link_to current_user.name, user_path(current_user)
               %li= link_to "Log Out", logout_path, method: :delete
             - else

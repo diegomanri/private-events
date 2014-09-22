@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :ensure_logged_in, only: [:create, :new]
+
   def show
     @event = Event.find(params[:id])
   end
@@ -8,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.new(params[:event])
     if @event.save
       redirect_to events_path
     else
@@ -18,5 +20,12 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+  end
+
+private
+  def ensure_logged_in
+    if !logged_in?
+      redirect_to login_path
+    end
   end
 end
