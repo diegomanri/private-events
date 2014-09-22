@@ -1,0 +1,7 @@
+%ul.list-group
+  
+  - @events.each do |e|
+    %li.list-group-item
+      %h2= e.readable_date
+      %h3= e.location
+      %p= e.description

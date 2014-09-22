@@ -6,6 +6,8 @@ PrivateEvents::Application.routes.draw do
 
   resources :users, only: [:show, :create, :new]
 
+  resources :events, only: [:show, :create, :new, :index]
+
   resources :sessions, only: [:create, :new, :destroy]
 
   match '/login',  to: 'sessions#new',     via: 'get'
