@@ -1,4 +1,16 @@
 PrivateEvents::Application.routes.draw do
+
+  get "static_pages/home"
+
+  root to: "static_pages#home"
+
+  resources :users, only: [:show, :create, :new]
+
+  resources :sessions, only: [:create, :new, :destroy]
+
+  match '/login',  to: 'sessions#new',     via: 'get'
+  match '/logout', to: 'sessions#destroy', via: 'delete'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
