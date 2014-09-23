@@ -1,14 +1,17 @@
 %h1 New event
 
-= form_for @event do |f|
-  = f.label :description
-  = f.text_field :description
+= form_for @event, :html => {} do |f|
+  .form-group
+    = f.label :description, class: "control-label"
+    = f.text_field :description, class: "form-control"
 
-  = f.label :location
-  = f.text_field :location
+  .form-group
+    = f.label :location, class: "control-label"
+    = f.text_field :location, class: "form-control"
 
-  = f.label :date
-  = f.datetime_select :date
+  .form-group
+    = f.label :date, class: "control-label"
+    = f.datetime_select :date, { }, {:class => "form-control dateform"}
 
-  = f.submit
+  = f.submit class: 'btn btn-default'
 
