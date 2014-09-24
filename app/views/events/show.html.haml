@@ -4,3 +4,10 @@
 %p
   Created by 
   =link_to @event.creator.name, user_path(@event.creator)
+
+%h4 Attendees
+%ul.list-group
+
+- @event.attendees.each do |a|
+  %li.list-group-item
+    %p= link_to a.name, user_path(a)

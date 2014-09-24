@@ -1,11 +1,14 @@
 %h1= @user.name
 %p= @user.email
 
-%ul.list-group
-  
-  - @user.events.each do |e|
-    %li.list-group-item
-      %h2= e.readable_date
-      %h3= e.location
-      %p= e.description
+%h2 Created events
 
+= render partial: "shared/events", object: @user.events
+
+%h2 Upcoming events
+
+= render partial: "shared/events", object: @user.upcoming_events
+
+%h2 Previously attended events
+
+= render partial: "shared/events", object: @user.previous_events

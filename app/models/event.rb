@@ -10,4 +10,12 @@ class Event < ActiveRecord::Base
   def readable_date
     I18n.l date, format: :long
   end
+
+  def self.upcoming
+    where("date >= ?", DateTime.current)
+  end
+
+  def self.previous
+    where("date < ?", DateTime.current)
+  end  
 end
