@@ -5,6 +5,12 @@
   Created by 
   =link_to @event.creator.name, user_path(@event.creator)
 
+-if logged_in?
+  -if @event.attended_by(current_user)
+    = link_to "Cancel", attendance_path(event_id: @event.id), method: :delete, class: "btn"
+  -else
+    = link_to "Attend", new_attendance_path(event_id: @event.id), class: "btn"
+
 %h4 Attendees
 %ul.list-group
 

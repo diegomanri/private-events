@@ -1,0 +1,7 @@
+%ul.list-group
+  
+  - events.each do |e|
+    %li.list-group-item
+      %h2= link_to e.readable_date, event_path(e)
+      %h3= e.location
+      %p= e.description

@@ -10,6 +10,8 @@ PrivateEvents::Application.routes.draw do
 
   resources :sessions, only: [:create, :new, :destroy]
 
+  resources :attendances, only: [:destroy, :new]
+
   match '/login',  to: 'sessions#new',     via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
 

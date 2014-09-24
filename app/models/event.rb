@@ -18,4 +18,8 @@ class Event < ActiveRecord::Base
   def self.previous
     where("date < ?", DateTime.current)
   end  
+
+  def attended_by(user)
+    !attendees.find_by_id(user.id).nil?
+  end
 end
