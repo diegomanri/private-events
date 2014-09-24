@@ -7,9 +7,9 @@
 
 -if logged_in?
   -if @event.attended_by(current_user)
-    = link_to "Cancel", attendance_path(event_id: @event.id), method: :delete, class: "btn"
+    = link_to "Cancel atendance", attendance_path(event_id: @event.id), method: :delete, class: "btn btn-primary"
   -else
-    = link_to "Attend", new_attendance_path(event_id: @event.id), class: "btn"
+    = link_to "Attend", new_attendance_path(event_id: @event.id), class: "btn btn-success"
 
 %h4 Attendees
 %ul.list-group
