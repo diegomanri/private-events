@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+rvm:
+  - "1.9.3"
+before_script:
+  - "bundle exec rake db:migrate"
+deploy:
+  provider: heroku
+  api_key: "53be8018-aaa6-40d5-9aca-4ada8c27c2dd"
+  app: privateevents
+  run: 
+    - "rake db:migrate"
+    - "rake db:seed"
+# uncomment this line if your project needs to run something other than `rake`:
+# script: bundle exec rspec spec
