@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ghembo/private-events.svg?branch=master)](https://travis-ci.org/ghembo/private-events)
+
 Private Events
 =====
 
